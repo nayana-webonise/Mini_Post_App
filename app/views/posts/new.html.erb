@@ -1,0 +1,14 @@
+<%= form_for @post, :html => { :method => :post, :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+      <%= f.label :name, "Post", :class => 'control-label' %>
+      <div class="controls">
+      <%= f.text_area :content ,cols:2, rows:3 %>
+    </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit", class: "btn btn-large btn-primary"  %>
+    </div>
+<% end %>
+
+
+<%= link_to "Posts",posts_path %>

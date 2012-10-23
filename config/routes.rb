@@ -1,10 +1,28 @@
 MiniPostApp::Application.routes.draw do
   root :to => 'users#new'
-  resources :users
+  resources :users do
+    collection do
+      post :create_post
+    end
+  end
+ # resources :sessions
   resources :sessions
+  resources :posts do
+    member do
+      get :new_comment
+    end
+    collection do
+      post :create_comment
+    end
+    resources :comments
+  end
+
+  resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
+  match '/signup', :to => 'users#create_post'
+  match '/signin', :to => 'sessions#create_post'
+  match '/signout', :to => 'sessions#destroy'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

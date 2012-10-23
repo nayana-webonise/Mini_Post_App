@@ -1,0 +1,22 @@
+<tr xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <td class="post">
+    <span class="content"><%= @post.content %></span>
+<span class="timestamp">
+Posted <%= time_ago_in_words(@post.created_at) %> ago.
+</span>
+</td>
+</tr>
+
+<%= link_to "comment", new_comment_post_path %>
+
+<!--<h2>Add a comment:</h2>-->
+<!--<%#= form_for @comment, :url => post_comments_path(@post) do |f1| %>-->
+    <!--<div class="field" >-->
+      <%#= f1.label :comment %><br />
+      <!--<%#= f1.text_field :body %>-->
+    <!--</div>-->
+    <!--<div class="actions">-->
+      <!--<%#= f1.submit "Submit"%>-->
+    <!--</div>-->
+
+<!--<%# end %>-->

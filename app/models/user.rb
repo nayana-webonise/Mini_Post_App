@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -46,6 +46,13 @@ class User < ActiveRecord::Base
     logger.info("@@@@@@@@@@@@@@@@@@@@@@@#{user.inspect}")
     return nil if user.nil?
     return user if user.has_password?(submitted_password)
+  end
+
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user : nil
+
+
   end
 
 end
