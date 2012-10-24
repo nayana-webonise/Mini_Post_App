@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])
-      logger.info("@@@@@@@@@@@@@@@@@@@@@@@#{user.inspect}")
+
       sign_in user
 
       #render 'shared/post_form'

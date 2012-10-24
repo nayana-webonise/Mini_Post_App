@@ -1,7 +1,7 @@
 <h2>Add a comment:</h2>
 <%= form_for(@comment, :url => create_comment_posts_path, :html => { :method => :post, :class => 'form-horizontal' }) do |f1| %>
     <div class="field" >
-      <%= f1.label :comment %><br />
+      <%= f1.label :comment %>
       <%= f1.text_field :body %>
     </div>   <br>
     <div class="actions">

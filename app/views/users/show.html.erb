@@ -2,3 +2,7 @@
 Name : <%= @user.name %><br>
 Email Address : <%= @user.email %>
 
+<%= @posts.each do |post| %>
+   <%= post.content %>
+<% end %>
+

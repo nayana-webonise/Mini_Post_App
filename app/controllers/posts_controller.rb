@@ -24,11 +24,14 @@ class PostsController < ApplicationController
   end
 
   def index
+    @all_posts=Post.all
    @posts=current_user.posts
   end
 
    def show
     @post=Post.find(params[:id])
+    @comment = @post.comments.new
+    @comments =@post.comments
    end
 
   def new_comment
