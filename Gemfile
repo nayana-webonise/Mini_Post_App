@@ -25,6 +25,8 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'bcrypt-ruby', '3.0.1'
 
+#gem 'simple_form', '2.0'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

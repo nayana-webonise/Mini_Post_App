@@ -7,8 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "MiniPostApp" %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+
+
+  <%#= csrf_meta_tags %>
+
+  <%= javascript_include_tag :application %>
+
+
+
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
@@ -67,32 +73,32 @@
 <div class="container">
   <div class="content">
     <div class="row">
+
+      <% if signed_in? %>
+          <div class="span3">
+            <!--<div class="well sidebar-nav">-->
+            <!--<h3>Users Dashboard</h3>-->
+            <ul id="user_sidebar">
+              <!--<li class="nav-header">Sidebar</li>-->
+              <li><%= link_to "Add a Post", new_post_path  %></li>
+              <li><%= link_to "Users", users_path %></li>
+              <li><%= link_to "Sign-out", signout_path %></li>
+            </ul>
+            <!--</div>&lt;!&ndash;/.well &ndash;&gt;-->
+          </div><!--/span-->
+      <% end  %>
       <div class="span9">
         <%= yield %>
       </div>
-      <% if signed_in? %>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Add a Post", new_post_path  %></li>
-                <li><%= link_to "Posts", posts_path %></li>
-                <li><%= link_to "Sign-out", signout_path %></li>
-                <li><%= link_to "Users", users_path %></li>
-
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
-      <% end  %>
     </div><!--/row-->
   </div><!--/content-->
 
-  <footer>
+  <footer class="footer">
     <p>&copy; Company 2012</p>
   </footer>
 
 </div> <!-- /container -->
+
 
 <!-- Javascripts
 ================================================== -->

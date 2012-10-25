@@ -1,6 +1,5 @@
-
 <h1>Sign in</h1>
-<%= form_for(:session, url: sessions_path,:html => { :method => :post, :class => 'form-horizontal' }, :validate => true) do |f| %>
+<%= form_for(:session, url: sessions_path,:html => { :method => :post, :class => 'form-horizontal' } ) do |f| %>
     <div class="control-group">
       <%= f.label :email, :class => 'control-label'%>
       <div class="controls">
@@ -8,13 +7,13 @@
       </div>
     </div>
     <div class="control-group">
-    <%= f.label :password, :class => 'control-label' %>
-    <div class="controls">
-    <%= f.password_field :password %>
-    </div>
+      <%= f.label :password, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password %>
+      </div>
     </div>
     <div class="form-actions">
-      <%= f.submit "Sign in", class: "btn btn-small btn-primary" %>
+      <%= f.submit "Sign in", id: "sign-in", class: "btn btn-small btn-primary" %>
     </div>
 <% end %>
 

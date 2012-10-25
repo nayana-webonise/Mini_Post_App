@@ -1,26 +1,18 @@
 MiniPostApp::Application.routes.draw do
   root :to => 'users#new'
   resources :users do
-    collection do
-      post :create_post
-    end
+
   end
  # resources :sessions
   resources :sessions
   resources :posts do
-    member do
-      get :new_comment
-    end
-    collection do
-      post :create_comment
-    end
     resources :comments
   end
 
   resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match '/signup', :to => 'users#new'
+  match '/signup', :to => 'users#create'
   match '/signin', :to => 'sessions#create'
   match '/signout', :to => 'sessions#destroy'
   # Sample of regular route:

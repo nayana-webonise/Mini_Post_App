@@ -24,8 +24,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @all_posts=Post.all
-   @posts=current_user.posts
+    @all=current_user.posts
+    @posts=Post.all
   end
 
    def show
@@ -34,24 +34,6 @@ class PostsController < ApplicationController
     @comments =@post.comments
    end
 
-  def new_comment
-    @post=Post.find(params[:id])
-    @comment =@post.comments.build(params[:comment])
-  end
-
-  def create_comment
-    #@post=Post.find(params[:id])
-    #logger.info("@@@@@@@@@--@post---@@@@@@@@@@@@@@#{@post.inspect}")
-
-    @comment1 =@post.comments.build(params[:comment])
-    if @comment1.save
-      flash[:success] = "comment created!"
-      redirect_to post_path @post
-    else
-      redirect_to root_path
-    end
-
-  end
 
   private
   def authorized_user

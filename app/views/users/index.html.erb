@@ -1,1 +1,5 @@
-hi
+<div class="well big-well span8">
+  <% @users.each do |user| %>
+      <%= link_to user.name, user %><br>
+  <% end %>
+</div>

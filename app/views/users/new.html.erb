@@ -1,6 +1,9 @@
 <h2>Sign Up</h2>
-<form class="form-horizontal">
-<%= form_for @user  do |f| %>
+
+<!--<form class="form-horizontal">-->
+
+<%= form_for @user, :html => { :method => :post , :class => 'form-horizontal'} do |f| %>
+
       <div class="control-group">
         <%= f.label :name, "Name", :class => 'control-label' %>
         <div class="controls">
@@ -26,7 +29,8 @@
         </div>
       </div>
       <div class="form-actions">
-    <%= f.submit "Create My Account" ,class: "btn btn-small btn-primary" %>
+    <%= f.submit "Create My Account"  %>
       </div>
+
 <% end %>
-</form>
+<!--</form>-->
