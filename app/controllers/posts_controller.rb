@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
    def new
      @post=Post.new
+     @posts = current_user.posts
    end
 
   def create

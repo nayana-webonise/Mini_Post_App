@@ -1,4 +1,4 @@
-
+<div class="well big-well span8">
 <h3>Post Here</h3>
 <%= form_for @post, :html => { :method => :post, :class => 'form-horizontal' } do |f| %>
     <div class="control-group">
@@ -11,6 +11,14 @@
       <%= f.submit "Submit", class: "btn btn-small btn-primary", id: "post-form"  %>
     </div>
 <% end %>
+
+<h3>Previous posts</h3>
+<% @posts.each do |post| %>
+    <%= link_to post.content ,post_path(post) %> <br>
+<% end %>
+</div>
+
+
 
 
 <%#= link_to "Posts",posts_path %>

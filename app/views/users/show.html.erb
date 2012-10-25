@@ -4,7 +4,6 @@
   Email Address : <%= @user.email %>
 
   <h2>Posts of User</h2>
-
   <% @posts.each do |post| %>
       <%= link_to post.content ,post_path(post) %> <br>
   <% end %>

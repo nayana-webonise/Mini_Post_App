@@ -1,5 +1,6 @@
-<h1>Sign in</h1>
-<%= form_for(:session, url: sessions_path,:html => { :method => :post, :class => 'form-horizontal' } ) do |f| %>
+<center><h2>Sign in</h2></center>
+<hr>
+<%= form_for(:session, url: sessions_path,:html => { :method => :post, :class => 'form-horizontal',:style => "padding-left: 200px" } ) do |f| %>
     <div class="control-group">
       <%= f.label :email, :class => 'control-label'%>
       <div class="controls">
