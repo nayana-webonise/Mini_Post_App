@@ -1,7 +1,11 @@
-.footer{
-  margin-top: 70px;
-  padding: 70px 0;
-}
+//.footer{
+////  margin-left: 100px;
+//
+//  //margin-top: 70px;
+//  //padding: 70px 0;
+////  margin-bottom: 100px;
+//
+//}
 .posts {
   list-style: none;
   margin: 10px 0 0 0;
@@ -44,27 +48,28 @@ hr {
   margin-left: 160px;
 }
 
-.container:after {
-  clear: both;
-}
-
-.container:before, .container:after {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-
-.container:before, .container:after {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-
-}
+//.container:after {
+//  clear: both;
+//}
+//
+//.container:before, .container:after {
+//  content: "";
+//  display: table;
+//  line-height: 0;
+//}
+//
+//.container:before, .container:after {
+//  content: "";
+//  display: table;
+//  line-height: 0;
+//}
+//
+//.container {
+//  margin-left: auto;
+//  margin-right: auto;
+//
+//
+//}
 h1, h2, h3, h4, h5, h6 {
   color: grey;
   font-family: inherit;
@@ -131,7 +136,41 @@ h3 {
 }
 
 
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
 
+}
+.footer, .push {
+  height: 6em;
+  margin-bottom:50px;
+  margin-left:170px;
+}
+
+
+.footer, .push {
+  clear: both;
+}
+
+
+
+#footerContainer {
+  border-top: 1px solid #EEEEEE;
+  padding: 8px 8px 38px;
+  position: fixed;
+}
+
+html,body{
+  height: 100%
+}
 ul#user_sidebar {
   list-style: none;
   border: 1px solid #ccc;

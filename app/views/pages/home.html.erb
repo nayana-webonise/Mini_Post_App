@@ -1,18 +1,18 @@
 <div class="row" >
-<div class ="span8">
-<div class="hero-unit">
-  <h1>Mini Post App</h1><br><br>
-  <p>This is a mini post app to create posts & comment on other user's posts</p>
-  <p style="float: right;">
-<%= link_to "Sign-Up", new_user_path, class: "btn btn-primary btn-large" %>
-      <%= link_to "Sign in", new_session_path, class: "btn btn-primary btn-large" %>
-  </p>
-</div>
-</div>
+  <div class ="span8">
+    <div class="hero-unit">
+      <h1>Mini Post App</h1><br><br>
+      <p>This is a mini post app to create posts & comment on other user's posts</p>
+      <p style="float: right;">
+        <%= link_to "Sign-Up", new_user_path, class: "btn btn-primary btn-large" %>
+        <%= link_to "Sign in", new_session_path, class: "btn btn-primary btn-large" %>
+      </p>
+    </div>
+  </div>
 
-<div class = "span4 offset8">
-  <%= render partial: "shared/new" %>
-</div>
+  <div class = "span4 offset8">
+    <%= render partial: "shared/new" %>
+  </div>
 </div>
 </div>
 

@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
     else
       redirect_to new_post_path
     end
-    # redirect_to root_path(@micropost)
   end
+
   def new
     @comment=Comment.new
 
@@ -18,9 +18,6 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.first
     @comment=Comment.find params[:id]
-
-    #@title = @user.name
   end
-
 
 end

@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     else
       @title = "Sign up"
       render 'new'
+    end
   end
-  end
-
 
   def show
     @user=User.find(params[:id])
@@ -25,12 +24,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(:page => params[:page], :per_page => 10)
-   # @users=User.all
-   # @users = User.paginate(:page => params[:page], :per_page => 10)
+    # @users=User.all
+    # @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def exists?
-    redirect_to root_url if !signed_in?
+    redirect_to signin_path if !signed_in?
   end
 
 end

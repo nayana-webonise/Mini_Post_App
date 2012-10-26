@@ -13,8 +13,8 @@ MiniPostApp::Application.routes.draw do
   resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match '/signup', :to => 'users#create'
-  match '/signin', :to => 'sessions#create'
+  match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

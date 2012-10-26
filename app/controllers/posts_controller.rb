@@ -2,10 +2,10 @@ class PostsController < ApplicationController
 
   before_filter :exists?, only: [:show, :destroy, :index]
 
-   def new
-     @post=Post.new
-     @posts = current_user.posts.paginate(:page => params[:page], :per_page => 10)
-   end
+  def new
+    @post=Post.new
+    @posts = current_user.posts.paginate(:page => params[:page], :per_page => 10)
+  end
 
   def create
     @post = current_user.posts.build(params[:post])
@@ -26,20 +26,18 @@ class PostsController < ApplicationController
   end
 
   def index
-
-
-   # @posts = Post.paginate(:page => params[:page], :per_page => 1)
+    # @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @all=current_user.posts
     @posts=Post.all
   end
 
-   def show
-   @posts = Post.paginate(:page => params[:page], :per_page => 1)
+  def show
+    @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @post=Post.find(params[:id])
     #@posts=Post.all
     @comment = @post.comments.new
     @comments =@post.comments
-   end
+  end
 
 
   private
@@ -49,7 +47,7 @@ class PostsController < ApplicationController
 
   end
 
-   def exists?
-     redirect_to root_url if !signed_in?
-   end
+  def exists?
+    redirect_to signin_path if !signed_in?
+  end
 end

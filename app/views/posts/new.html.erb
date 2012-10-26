@@ -1,22 +1,22 @@
 <div class="well big-well span8">
-<h3>Post Here</h3>
-<%= form_for @post, :html => { :method => :post, :class => 'form-horizontal' } do |f| %>
-    <div class="control-group">
-      <%= f.label :name, "Post", :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_area :content ,cols:2, rows:3 %>
-        <%= f.submit "Submit", class: "btn btn-small btn-primary", id: "post-form"  %>
+  <h3>Post Here</h3>
+  <%= form_for @post, :html => { :method => :post, :class => 'form-horizontal' } do |f| %>
+      <div class="control-group">
+        <%= f.label :name, "Post", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :content ,cols:2, rows:3 %>
+          <%= f.submit "Submit", class: "btn btn-small btn-primary", id: "post-form"  %>
+        </div>
       </div>
-    </div>
-<% end %>
+  <% end %>
 
 
-<!--<h3>Previous posts</h3>-->
-<!--<%# @posts.each do |post| %>-->
-      <!--<%#= post.content %>-->
+  <!--<h3>Previous posts</h3>-->
+  <!--<%# @posts.each do |post| %>-->
+  <!--<%#= post.content %>-->
 
-    <%#= link_to post.content ,post_path(post) %>
-<!--<%# end %>-->
+  <%#= link_to post.content ,post_path(post) %>
+  <!--<%# end %>-->
 
 
 
@@ -26,35 +26,35 @@
 
 
 
-<h3>Previous Posts :</h3>
-<% @posts.each do |post| %>
+  <h3>Previous Posts :</h3>
+  <% @posts.each do |post| %>
 
-    <div class="comments">
+      <div class="comments">
 
-      <%#= post.content %>
-      <%= link_to post.content ,post_path(post) %><br>
+        <%#= post.content %>
+        <%= link_to post.content ,post_path(post) %><br>
     <span class="timestamp">
 Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
 </span>
 
-      <br>
+        <br>
 
-      <%#= render partial: "shared/comment" %>
+        <%#= render partial: "shared/comment" %>
 
-      <!--Comment:-->
-      <!--<%#= @comments = post.content %>-->
-      <!--<%#= @comments.each do |comment| %>-->
-      <!--<#% @comments = post.comments %>-->
-      <!--<%#= @comments.each do |comment| %>-->
-      <%#= comment.body %><br>
-      <!--&lt;!&ndash;&ndash;&gt;-->
-      <%#= link_to post.content ,post_path(post) %> <br>
-      <!--<#% end %>-->
+        <!--Comment:-->
+        <!--<%#= @comments = post.content %>-->
+        <!--<%#= @comments.each do |comment| %>-->
+        <!--<#% @comments = post.comments %>-->
+        <!--<%#= @comments.each do |comment| %>-->
+        <%#= comment.body %><br>
+        <!--&lt;!&ndash;&ndash;&gt;-->
+        <%#= link_to post.content ,post_path(post) %> <br>
+        <!--<#% end %>-->
 
-    </div>
-<% end %>
+      </div>
+  <% end %>
 
-<!--</div>-->
+  <!--</div>-->
 </div>
 
 </div>

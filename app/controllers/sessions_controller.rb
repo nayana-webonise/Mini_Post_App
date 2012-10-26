@@ -11,13 +11,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:session][:email].downcase)
-
     if user && user.authenticate(params[:session][:password])
-
       sign_in user
-
       #render 'shared/post_form'
-       redirect_to new_post_path
+      redirect_to new_post_path
     else
       flash[:error] = 'Invalid email/password combination' # Not quite right!
       redirect_to new_session_path
@@ -31,7 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def exists?
-    redirect_to root_url if !signed_in?
+    redirect_to signin_path if !signed_in?
   end
 
   private
