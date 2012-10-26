@@ -1,6 +1,7 @@
 
 require 'digest'
 class User < ActiveRecord::Base
+  self.per_page = 10
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 

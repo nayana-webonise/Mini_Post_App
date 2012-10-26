@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :exists?, only: [:show,:index]
+
   def new
     render 'new'
   end
@@ -26,6 +28,10 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_url
+  end
+
+  def exists?
+    redirect_to root_url if !signed_in?
   end
 
   private

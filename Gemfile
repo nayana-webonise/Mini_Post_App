@@ -21,9 +21,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'gravatar_image_tag', '0.1.0'
 gem "twitter-bootstrap-rails"
 gem 'bcrypt-ruby', '3.0.1'
+gem 'will_paginate', '~> 3.0'
+
+
 
 #gem 'simple_form', '2.0'
 

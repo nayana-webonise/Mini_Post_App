@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
    def new
      @post=Post.new
-     @posts = current_user.posts
+     @posts = current_user.posts.paginate(:page => params[:page], :per_page => 10)
    end
 
   def create
@@ -19,18 +19,24 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_back_or root_path
+    @post=Post.find(params[:id]).destroy
+    #@post.destroy
+    redirect_to users_path
 
   end
 
   def index
+
+
+   # @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @all=current_user.posts
     @posts=Post.all
   end
 
    def show
+   @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @post=Post.find(params[:id])
+    #@posts=Post.all
     @comment = @post.comments.new
     @comments =@post.comments
    end

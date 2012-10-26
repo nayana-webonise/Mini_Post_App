@@ -2,49 +2,44 @@
   <h3>Post</h3>
   <tr xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <td class="post">
-      <span class="content"><%= @post.content %></span>
+      <span class="content"><%= @post.content %></span>  <br>
 <span class="timestamp">
-Posted <%= time_ago_in_words(@post.created_at) %> ago. <br>
+Posted <%= time_ago_in_words(@post.created_at) %> ago.
 </span>
     </td>
   </tr>
-  <table>
-    <h3>Comments</h3>
-    <% @comments.each do |i| %>  <br>
-        <tr>
-          <td>
-            <%=i.body %>
-          </td>
-        </tr>
-    <%end%>
-  </table>
+
+  <% if current_user?(@post.user) %>
+      <td>
+        <%= link_to "Delete",post_path(@post),:data => { :confirm => "Are you sure to delete this post?" }, :method => :delete, class: "btn btn-mini btn-danger" %>
+      </td>
+  <% end %>
 
   <h3>Add a Comment</h3>
   <%= form_for @comment, :url => post_comments_path(@post), :html => { :method => :post, :class => 'form-horizontal' } do |f1| %>
       <div class="control-group">
-        <h3> <%= f1.label :Comment %></h3>
+        <%#= f1.label :Comment %>
         <div class="controls">
-          <%= f1.text_area :body ,cols:2, rows:3 %>
+          <%= f1.text_area :body  %>
+          <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
           <%#= f1.text_field :body %>
         </div>
       </div>
       <div class="form-actions">
-        <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
+
       </div>
 
   <% end %>
 
+    <h3>Comments</h3>
+    <% @comments.each do |i| %>
+            <%=i.body %>  <br>
+  <%end%>
+
+
   </span>
   </td>
   </td>
-  <% if current_user?(@post.user) %>
-      <td>
-        <%= link_to "delete", @post, :method => :delete,
-                    :confirm => "You sure?",
-                    :title => @post.content %>
-      </td>
-  <% end %>
-
   </tr>
 </div>
 

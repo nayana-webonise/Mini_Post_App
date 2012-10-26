@@ -1,5 +1,6 @@
 MiniPostApp::Application.routes.draw do
-  root :to => 'users#new'
+ # root :to => 'users#new'
+ root :to => 'pages#home'
   resources :users do
 
   end

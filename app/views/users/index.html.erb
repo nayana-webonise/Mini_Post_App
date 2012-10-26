@@ -1,5 +1,18 @@
+
 <div class="well big-well span8">
+
+
   <% @users.each do |user| %>
-      <%= link_to user.name, user %><br>
+      <div class="border">
+        <%= gravatar_for user, :size => 30 %>
+
+        <%= link_to user.name, user %><br>
+      </div>
   <% end %>
+
 </div>
+
+<%= will_paginate @users %>
+
+
+

@@ -1,11 +1,37 @@
 <div class="well big-well span8">
-  <h2>User Details</h2>
-  Name : <%= @user.name %><br>
-  Email Address : <%= @user.email %>
+  <%= gravatar_for @user %>
 
-  <h2>Posts of User</h2>
+  <h3>Name : <%= @user.name %></h3>
+
+  <h3>Posts :</h3>
   <% @posts.each do |post| %>
-      <%= link_to post.content ,post_path(post) %> <br>
+
+  <div class="comments">
+
+     <%#= post.content %>
+    <%= link_to post.content ,post_path(post) %><br>
+    <span class="timestamp">
+Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
+</span>
+
+    <br>
+
+    <%#= render partial: "shared/comment" %>
+
+  <!--Comment:-->
+      <!--<%#= @comments = post.content %>-->
+      <!--<%#= @comments.each do |comment| %>-->
+      <!--<#% @comments = post.comments %>-->
+      <!--<%#= @comments.each do |comment| %>-->
+          <%#= comment.body %><br>
+<!--&lt;!&ndash;&ndash;&gt;-->
+     <%#= link_to post.content ,post_path(post) %> <br>
+  <!--<#% end %>-->
+
+  </div>
   <% end %>
+
+<!--</div>-->
 </div>
 
+<%= will_paginate @posts %>

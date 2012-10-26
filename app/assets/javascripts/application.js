@@ -32,34 +32,27 @@ $(document).ready(function () {
             if(name=='' || email== '' || password== '' || password_confirmation == '')
             {
                 alert("Fill all the details")
-
                 event.preventDefault();
 
             }
-            else if(password.length < 6 || password.length > 15)
+            else if(!(name_format.test(name)))
             {
-                alert("Enter password between 6 to 15 characters")
-                $("#user_password").setAttribute(" ")
-                $("#user_password_confirmation").setAttribute(" ")
-                event.preventDefault();
-            }
-            else if(password!=password_confirmation)
-            {
-                alert("Password should match with password confirmation")
-                $("#user_password").setAttribute(" ")
-                $("#user_password_confirmation").setAttribute(" ")
+                alert("Enter name in correct format")
                 event.preventDefault();
             }
             else if(!(pattern.test(email)))
             {
                 alert("Enter email in correct format")
-                $("#user_email").setAttribute(" ")
                 event.preventDefault();
             }
-            else if(!(name_format.test(name)))
+            else if(password.length < 6 || password.length > 15)
             {
-                alert("Enter name in correct format")
-                $("#user_name").setAttribute(" ")
+                alert("Enter password between 6 to 15 characters")
+                event.preventDefault();
+            }
+            else if(password!=password_confirmation)
+            {
+                alert("Password should match with password confirmation")
                 event.preventDefault();
             }
             else
@@ -77,8 +70,6 @@ $(document).ready(function () {
         if( session_email== '' || session_password== '' )
         {
             alert("Fill all the details")
-            $("#session_email").setAttribute(" ")
-            $("#session_password").setAttribute(" ")
             event.preventDefault();
 
         }
@@ -92,14 +83,12 @@ $(document).ready(function () {
         if( post == '' )
         {
             alert("Post can't be blank")
-            $("#post_content").setAttribute(" ")
             event.preventDefault();
 
         }
         else if(post.length > 140)
         {
             alert("Post should not be more than 140 characters")
-            $("#post_content").setAttribute(" ")
             event.preventDefault();
         }
         else
@@ -116,15 +105,15 @@ $(document).ready(function () {
         if(comment == '' )
         {
             alert("Comment can't be blank")
-            $("#comment_body").setAttribute(" ")
             event.preventDefault();
 
         }
-        else if(comment.length > 140)
+        else if(comment.length > 10)
         {
             alert("Comment should not be more than 140 characters")
-            $("#comment_body").setAttribute(" ")
             event.preventDefault();
+
+
         }
         else
         {
