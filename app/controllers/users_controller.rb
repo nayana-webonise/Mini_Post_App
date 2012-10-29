@@ -32,4 +32,6 @@ class UsersController < ApplicationController
     redirect_to signin_path if !signed_in?
   end
 
+
+
 end

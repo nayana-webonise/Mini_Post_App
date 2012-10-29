@@ -1,6 +1,4 @@
 <div class="well big-well span8">
-  <!--<a href="<%= root_path %>" id="logo"><i class='icon-eye-open'></i> Navigation Tracker</a>-->
-
   <h3>Post</h3>
   <tr xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <td class="post">
@@ -24,6 +22,7 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago.
         <div class="controls">
           <%= f1.text_area :body  %>
           <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
+
           <%#= f1.text_field :body %>
         </div>
       </div>

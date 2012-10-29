@@ -1,3 +1,4 @@
+require 'facebook_oauth'
 class PostsController < ApplicationController
 
   before_filter :exists?, only: [:show, :destroy, :index]
@@ -37,6 +38,27 @@ class PostsController < ApplicationController
     #@posts=Post.all
     @comment = @post.comments.new
     @comments =@post.comments
+  end
+
+
+  def auth
+    client = FacebookOAuth::Client.new(
+        :application_id => '434277789963565',
+        :application_secret => '57f32627336bb116989ce62e0df0e759',
+        :callback => 'http://local.mini-post-app.com/posts/callback'
+    )
+    client.authorize_url
+    access_token = client.authorize(:code => params[:code])
+    @client = client.me.info
+  end
+
+  def callback
+    client = FacebookOAuth::Client.new(
+        :application_id => '434277789963565',
+        :application_secret => '57f32627336bb116989ce62e0df0e759',
+        :callback => 'http://local.mini-post-app.com/posts/callback'
+    )
+    access_token = client.authorize(:code => params[:code])
   end
 
 

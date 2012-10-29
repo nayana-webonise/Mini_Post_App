@@ -7,6 +7,9 @@ MiniPostApp::Application.routes.draw do
  # resources :sessions
   resources :sessions
   resources :posts do
+    get :auth
+    get :callback
+
     resources :comments
   end
 
