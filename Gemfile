@@ -27,7 +27,6 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '~> 3.0'
 
 
-
 #gem 'simple_form', '2.0'
 
 # To use ActiveModel has_secure_password

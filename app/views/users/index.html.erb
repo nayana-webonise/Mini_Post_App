@@ -1,7 +1,10 @@
 
 <div class="well big-well span8">
 
-
+  <div>
+    <!--<%#= image_tag "facebook-login.png" %>-->
+    <!--<a href="/auth"><img src="facebook-login.png"/></a>-->
+  </div>
   <% @users.each do |user| %>
       <div class="border">
         <%= gravatar_for user, :size => 30 %>

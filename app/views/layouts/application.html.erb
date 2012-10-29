@@ -49,9 +49,11 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="<%= root_url %>">MiniPostApp</a>
+      <a href="/auth"><img src="facebook-login.png"/></a>
       <div class="container nav-collapse">
         <ul class="nav">
           <% if signed_in? %>
+
               <li><%= link_to "Add a Post", new_post_path  %></li>
               <li><%= link_to "Sign-out", signout_path %></li>
 
@@ -78,6 +80,9 @@
               <li><%= link_to "Add a Post", new_post_path  %></li>
               <li><%= link_to "Users", users_path %></li>
               <li><%= link_to "Sign-out", signout_path %></li>
+              <!--<div>-->
+
+              <!--</div>-->
             </ul>
             <!--</div>&lt;!&ndash;/.well &ndash;&gt;-->
           </div><!--/span-->
