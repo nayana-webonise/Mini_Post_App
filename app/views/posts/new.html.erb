@@ -41,7 +41,8 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
 
         <br>
         <!--<a href="posts/auth"><img src="facebook-login.png"/></a>-->
-        <%= link_to "facebook",post_auth_path(post) %>
+        <%= link_to "facebook",post_auth_path(post.id) %>
+
 
         <%#= render partial: "shared/comment" %>
 

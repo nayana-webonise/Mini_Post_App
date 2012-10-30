@@ -11,8 +11,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(params[:post])
     if @post.save
-      flash[:success] = "Post created!"
       redirect_to posts_path
+      flash[:success] = "Post successfully created!"
+
     else
       flash[:error] = "Error!"
       render 'new'
@@ -35,6 +36,8 @@ class PostsController < ApplicationController
   def show
     @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @post=Post.find(params[:id])
+
+
     #@posts=Post.all
     @comment = @post.comments.new
     @comments =@post.comments
@@ -42,23 +45,33 @@ class PostsController < ApplicationController
 
 
   def auth
-    client = FacebookOAuth::Client.new(
+    @client = FacebookOAuth::Client.new(
         :application_id => '434277789963565',
         :application_secret => '57f32627336bb116989ce62e0df0e759',
-        :callback => 'http://local.mini-post-app.com/posts/callback'
+        :callback => "http://local.mini-post-app.com/posts/#{params[:post_id]}/callback"
     )
-    client.authorize_url
-    access_token = client.authorize(:code => params[:code])
-    @client = client.me.info
+    redirect_to @client.authorize_url
+   # access_token = client.authorize(:code => params[:code])
+    #@client = client.me.info
   end
 
   def callback
-    client = FacebookOAuth::Client.new(
+    @post=Post.find(params[:post_id])
+    @client = FacebookOAuth::Client.new(
         :application_id => '434277789963565',
         :application_secret => '57f32627336bb116989ce62e0df0e759',
-        :callback => 'http://local.mini-post-app.com/posts/callback'
+        :callback => "http://local.mini-post-app.com/posts/#{params[:post_id]}/callback"
     )
-    access_token = client.authorize(:code => params[:code])
+    @access_token = @client.authorize(:code => params[:code])
+    @client.authorize_url(:scope => 'publish_stream')
+    #@post=Post.find(params[:id])
+    #logger.info("post contents ###############################{@post.content}")
+   @client.me.feed(:create, :message => @post.content)
+
+    redirect_to new_post_path
+    #redirect_to users_path
+    flash[:success] = "Posted successfully"
+
   end
 
 

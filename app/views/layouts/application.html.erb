@@ -43,13 +43,14 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+
       <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="<%= root_url %>">MiniPostApp</a>
-      <a href="/auth"><img src="facebook-login.png"/></a>
+
       <div class="container nav-collapse">
         <ul class="nav">
           <% if signed_in? %>
@@ -68,7 +69,14 @@
 </div>
 
 <div class="container">
+
   <div class="content">
+    <div class="messages">
+      <p id="alert_box" class="alert" style="display: none;"></p>
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <div class="row">
 
       <% if signed_in? %>
