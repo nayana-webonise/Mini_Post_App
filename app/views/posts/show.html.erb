@@ -22,13 +22,10 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago.
         <div class="controls">
           <%= f1.text_area :body  %>
           <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
-
-          <%#= f1.text_field :body %>
         </div>
       </div>
       <div class="form-actions">
       </div>
-
   <% end %>
 
   <h3>Comments</h3>

@@ -64,4 +64,9 @@ MiniPostApp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+  FACEBOOK_API_KEY = '434277789963565'
+  FACEBOOK_SECRET_KEY_SECRET = '57f32627336bb116989ce62e0df0e759'
+
 end

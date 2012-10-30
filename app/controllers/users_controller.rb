@@ -1,5 +1,8 @@
+
 class UsersController < ApplicationController
-  before_filter :exists?, only: [:show,:index]
+
+
+  before_filter :exists?, only: [:show]
 
   def new
     @user=User.new
@@ -8,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Successfully Signed up"
       redirect_to new_session_path
+      flash[:success] = "Successfully Signed up"
     else
       @title = "Sign up"
       render 'new'
@@ -31,7 +34,5 @@ class UsersController < ApplicationController
   def exists?
     redirect_to signin_path if !signed_in?
   end
-
-
 
 end

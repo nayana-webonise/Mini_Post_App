@@ -26,6 +26,10 @@ gem "twitter-bootstrap-rails"
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '~> 3.0'
 gem "facebook_oauth", "~> 0.3.0"
+gem "omniauth", "~> 1.1.1"
+gem "omniauth-facebook", "~> 1.4.1"
+gem 'oauth2'
+
 
 #gem 'simple_form', '2.0'
 

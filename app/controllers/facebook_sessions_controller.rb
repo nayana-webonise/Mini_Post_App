@@ -1,0 +1,2 @@
+class FacebookSessionsController < ApplicationController
+end

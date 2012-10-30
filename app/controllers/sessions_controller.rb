@@ -16,8 +16,9 @@ class SessionsController < ApplicationController
       #render 'shared/post_form'
       redirect_to new_post_path
     else
-      flash[:error] = 'Invalid email/password combination' # Not quite right!
+
       redirect_to new_session_path
+      flash[:error] = 'Invalid email/password combination' # Not quite right!
     end
   end
 

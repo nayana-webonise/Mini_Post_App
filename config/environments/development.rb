@@ -34,4 +34,10 @@ MiniPostApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  FACEBOOK_API_KEY = '434277789963565'
+  FACEBOOK_SECRET_KEY_SECRET = '57f32627336bb116989ce62e0df0e759'
+
 end

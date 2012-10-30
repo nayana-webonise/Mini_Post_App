@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(params[:post])
     if @post.save
-      redirect_to posts_path
+      redirect_to new_post_path
       flash[:success] = "Post successfully created!"
 
     else
@@ -23,7 +23,8 @@ class PostsController < ApplicationController
   def destroy
     @post=Post.find(params[:id]).destroy
     #@post.destroy
-    redirect_to users_path
+    redirect_to _path
+    flash[:success] = "Post successfully deleted!"
 
   end
 
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
         :callback => "http://local.mini-post-app.com/posts/#{params[:post_id]}/callback"
     )
     redirect_to @client.authorize_url
-   # access_token = client.authorize(:code => params[:code])
+    # access_token = client.authorize(:code => params[:code])
     #@client = client.me.info
   end
 
@@ -66,7 +67,7 @@ class PostsController < ApplicationController
     @client.authorize_url(:scope => 'publish_stream')
     #@post=Post.find(params[:id])
     #logger.info("post contents ###############################{@post.content}")
-   @client.me.feed(:create, :message => @post.content)
+    @client.me.feed(:create, :message => @post.content)
 
     redirect_to new_post_path
     #redirect_to users_path

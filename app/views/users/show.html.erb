@@ -6,32 +6,32 @@
   <h3>Posts :</h3>
   <% @posts.each do |post| %>
 
-  <div class="comments">
+      <div class="comments">
 
-     <%#= post.content %>
-    <%= link_to post.content ,post_path(post) %><br>
+        <%#= post.content %>
+        <%= link_to post.content ,post_path(post) %><br>
     <span class="timestamp">
 Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
 </span>
 
-    <br>
+        <br>
 
-    <%#= render partial: "shared/comment" %>
+        <%#= render partial: "shared/comment" %>
 
-  <!--Comment:-->
-      <!--<%#= @comments = post.content %>-->
-      <!--<%#= @comments.each do |comment| %>-->
-      <!--<#% @comments = post.comments %>-->
-      <!--<%#= @comments.each do |comment| %>-->
-          <%#= comment.body %><br>
-<!--&lt;!&ndash;&ndash;&gt;-->
-     <%#= link_to post.content ,post_path(post) %> <br>
-  <!--<#% end %>-->
+        <!--Comment:-->
+        <!--<%#= @comments = post.content %>-->
+        <!--<%#= @comments.each do |comment| %>-->
+        <!--<#% @comments = post.comments %>-->
+        <!--<%#= @comments.each do |comment| %>-->
+        <%#= comment.body %><br>
+        <!--&lt;!&ndash;&ndash;&gt;-->
+        <%#= link_to post.content ,post_path(post) %> <br>
+        <!--<#% end %>-->
 
-  </div>
+      </div>
   <% end %>
 
-<!--</div>-->
+  <!--</div>-->
 </div>
 
 <%= will_paginate @posts %>
