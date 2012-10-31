@@ -1,7 +1,7 @@
 require 'facebook_oauth'
 class PostsController < ApplicationController
 
-  #before_filter :exists?, only: [:show, :destroy, :index]
+  before_filter :exists?, only: [:show, :destroy, :index]
 
   def new
     #@user=User.find(params[:id])

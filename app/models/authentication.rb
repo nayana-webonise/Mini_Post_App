@@ -19,6 +19,11 @@ class Authentication < ActiveRecord::Base
     self.raw["user_info"]["email"]
   rescue
   end
+  def name
+    self.raw["user_info"]["name"]
+  rescue
+  end
+
 
 
 end

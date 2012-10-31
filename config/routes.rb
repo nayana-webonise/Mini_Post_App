@@ -5,7 +5,7 @@ MiniPostApp::Application.routes.draw do
  # root :to => 'users#new'
  root :to => 'pages#home'
   resources :users do
-
+   get :profile
   end
  # resources :sessions
   resources :sessions

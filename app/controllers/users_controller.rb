@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
 
 
- # before_filter :exists?, only: [:show]
+  before_filter :exists?, only: [:show,:index]
 
   def new
     @user=User.new
@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
     @comment=Comment.new
+  end
+
+  def profile
+    @user=User.find(params[:id])
   end
 
   def index
