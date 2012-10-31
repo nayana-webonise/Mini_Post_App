@@ -9,4 +9,5 @@ class CreateAuthentications < ActiveRecord::Migration
       t.timestamps
     end
   end
+  add_index :authentications, :user_id
 end

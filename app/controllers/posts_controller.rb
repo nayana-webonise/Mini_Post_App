@@ -1,11 +1,17 @@
 require 'facebook_oauth'
 class PostsController < ApplicationController
 
-  before_filter :exists?, only: [:show, :destroy, :index]
+  #before_filter :exists?, only: [:show, :destroy, :index]
 
   def new
+    #@user=User.find(params[:id])
     @post=Post.new
     @posts = current_user.posts.paginate(:page => params[:page], :per_page => 10)
+ #   @posts = User.where('users.id == authentications.user_id')
+
+    #@posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
+    #@authentication = Authentication.find(params[:id])
+    #@posts=User.find(@authentication.user_id).posts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def create
@@ -23,7 +29,7 @@ class PostsController < ApplicationController
   def destroy
     @post=Post.find(params[:id]).destroy
     #@post.destroy
-    redirect_to _path
+    redirect_to_new_post_path
     flash[:success] = "Post successfully deleted!"
 
   end

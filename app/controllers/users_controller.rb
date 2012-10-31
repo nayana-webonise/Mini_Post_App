@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
 
 
-  before_filter :exists?, only: [:show]
+ # before_filter :exists?, only: [:show]
 
   def new
     @user=User.new

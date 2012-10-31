@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :exists?, only: [:show,:index]
+  #before_filter :exists?, only: [:show,:index]
 
   def new
     render 'new'
