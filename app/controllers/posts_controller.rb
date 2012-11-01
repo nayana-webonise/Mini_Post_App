@@ -44,7 +44,6 @@ class PostsController < ApplicationController
     @posts = Post.paginate(:page => params[:page], :per_page => 1)
     @post=Post.find(params[:id])
 
-
     #@posts=Post.all
     @comment = @post.comments.new
     @comments =@post.comments

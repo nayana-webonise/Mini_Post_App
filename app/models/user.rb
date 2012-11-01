@@ -1,9 +1,9 @@
 
 require 'digest'
 class User < ActiveRecord::Base
-  mount_uploader :avtar, AvatarUploader
+  mount_uploader :image, AvatarUploader
   self.per_page = 10
-  attr_accessible :email, :name, :password, :password_confirmation, :avtar
+  attr_accessible :email, :name, :password, :password_confirmation, :image
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
@@ -24,8 +24,10 @@ class User < ActiveRecord::Base
 
   def apply_omniauth(auth)
     # In previous omniauth, 'user_info' was used in place of 'raw_info'
+    self.image =  auth['extra']['raw_info']['image']
     self.email = auth['extra']['raw_info']['email']
     self.name =  auth['extra']['raw_info']['name']
+
     # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
     authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
   end

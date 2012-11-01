@@ -15,6 +15,10 @@ class Authentication < ActiveRecord::Base
   validates :uid, :provider, :presence => true
   attr_accessor :raw
 
+  def image
+    self.raw["user_info"]["image"]
+  rescue
+  end
   def email
     self.raw["user_info"]["email"]
   rescue
@@ -24,6 +28,8 @@ class Authentication < ActiveRecord::Base
   rescue
   end
 
-
-
 end
+
+
+
+

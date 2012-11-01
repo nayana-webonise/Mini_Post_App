@@ -65,10 +65,10 @@
                 </a>
                 <ul class="dropdown-menu pull-right">
 
-                      <li><%= link_to "Add a Post", new_post_path  %></li>
+                      <!--<li><%#= link_to "Add a Post", new_post_path  %></li>-->
 
                       <li><%= link_to "Sign-out", signout_path %></li>
-                      <li class="divider"></li>
+
 
 
                 </ul>
@@ -119,7 +119,11 @@
               <!--<li class="nav-header">Sidebar</li>-->
               <li><%= link_to "Add a Post", new_post_path  %></li>
               <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Sign-out", signout_path %></li>
+              <li><%= link_to "Profile" ,user_path(current_user.id) %></li>
+              <li><%= link_to "Update Profile" ,edit_user_path(current_user.id) %></li>
+              <!--<li><%#= link_to "Sign out", signout_path, id: "sign_out" %><li>-->
+
+              <!--<li><%#= link_to "Sign-out", signout_path %></li>-->
               <!--<div>-->
 
               <!--</div>-->
