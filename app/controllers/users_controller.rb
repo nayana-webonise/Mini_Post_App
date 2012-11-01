@@ -6,10 +6,12 @@ class UsersController < ApplicationController
 
   def new
     @user=User.new
+
   end
 
   def create
     @user = User.new(params[:user])
+
     if @user.save
       redirect_to new_session_path
       flash[:success] = "Successfully Signed up"
@@ -19,6 +21,20 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated."
+      redirect_to @user
+    end
+
+
+  end
   def show
     @user=User.find(params[:id])
     @posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
@@ -26,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+  #  @user=current_user
     @user=User.find(params[:id])
   end
 

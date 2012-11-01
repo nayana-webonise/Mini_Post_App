@@ -1,3 +1,7 @@
-<h1>User Profile</h1>
-<h5>Name : <%= @user.name %></h5>
-<h5>Email: <%= @user.email %></h5>
+<div class="well big-well span8">
+  <%= gravatar_for @user %>
+
+  <h3>Name : <%= @user.name %></h3>
+
+  <h3>Posts :</h3>
+</div>

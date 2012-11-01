@@ -1,8 +1,9 @@
 
 require 'digest'
 class User < ActiveRecord::Base
+  mount_uploader :avtar, AvatarUploader
   self.per_page = 10
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :avtar
   has_secure_password
 
   before_save { |user| user.email = email.downcase }

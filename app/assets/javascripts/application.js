@@ -57,7 +57,7 @@ $(document).ready(function () {
             }
             else
             {
-                alert("Successfully registered with mini post app")
+
             }
 
         }

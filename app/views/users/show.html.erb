@@ -1,7 +1,14 @@
 <div class="well big-well span8">
-  <%= gravatar_for @user %>
-
+  <%= link_to "Update Profile" ,edit_user_path(@user) %><br><br>
+  <div class ="prof">
+  <%= image_tag @user.avtar, :class=>"resize_image" %><br>
+  <%#= gravatar_for @user %>
+  </div>
   <h3>Name : <%= @user.name %></h3>
+
+  <h3>Email : <%= @user.email %></h3>
+
+
 
   <h3>Posts :</h3>
   <% @posts.each do |post| %>

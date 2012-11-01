@@ -5,13 +5,14 @@ MiniPostApp::Application.routes.draw do
  # root :to => 'users#new'
  root :to => 'pages#home'
   resources :users do
-   get :profile
+    get :profile
   end
  # resources :sessions
   resources :sessions
   resources :posts do
     get :auth
     get :callback
+
 
     resources :comments
   end
@@ -24,6 +25,7 @@ MiniPostApp::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/auth/:provider/callback' => 'authentication#create'
+  match '/profile', :to => 'users#profile'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

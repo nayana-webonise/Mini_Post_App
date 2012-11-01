@@ -51,6 +51,8 @@ class PostsController < ApplicationController
   end
 
 
+
+
   def auth
     @client = FacebookOAuth::Client.new(
         :application_id => '434277789963565',

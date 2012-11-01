@@ -46,6 +46,7 @@ class AuthenticationController < ApplicationController
 
   def create
     omniauth = request.env['omniauth.auth']
+    logger.info("omniauth ###############################{omniauth}")
     authentication = Authentication.find_by_provider_and_uid(omniauth["provider"], omniauth["uid"])
     if current_user
       if authentication && authentication.try(:user) != current_user

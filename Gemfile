@@ -29,7 +29,7 @@ gem "facebook_oauth", "~> 0.3.0"
 gem "omniauth", "~> 1.1.1"
 gem "omniauth-facebook", "~> 1.4.1"
 gem 'oauth2'
-
+gem "carrierwave", "~> 0.7.0"
 
 #gem 'simple_form', '2.0'
 
