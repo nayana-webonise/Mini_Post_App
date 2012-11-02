@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to new_post_path
     else
 
-      redirect_to new_session_path
+      redirect_to root_path
       flash[:error] = 'Invalid email/password combination' # Not quite right!
     end
   end

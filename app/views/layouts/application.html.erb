@@ -84,14 +84,28 @@
               <a class="brand" href="<%= root_url %>">MiniPostApp</a>
 
               <div class ="main">
-                <ul class="nav">
-                  <li><%= link_to "Sign-Up", new_user_path %></li>
-                  <li><%= link_to "Sign in", new_session_path %></li>
+                <!--<ul class="nav">-->
+                  <!--<li><%#= link_to "Sign-Up", new_user_path %></li>-->
+                  <!--<li><%#= link_to "Sign in", new_session_path %></li>-->
+                <%= form_for(:session, url: sessions_path,:html => { :method => :post },:class => "navbar-form pull-right" ) do |f| %>
+                    <%= f.text_field :email %>
+                    <%= f.password_field :password %>
+
+                    <%= f.submit "Sign in", id: "sign-in", class: "btn btn-small btn-primary" %>
+                    <%= link_to image_tag(asset_path = "icon_facebook_login.png",:alt => "facebook_login_icon",:class=>"facebook_login_icon"),'/auth/facebook/'  %>
+                <!--<form class="navbar-form pull-right">-->
+
+                  <!--<input type="text" placeholder="Email" class="span2">-->
+                  <!--<input type="password" placeholder="Password" class="span2">-->
+                  <!--<button class="btn" type="submit">Sign in</button>-->
+                  <!--<%#= link_to image_tag(asset_path = "icon_facebook_login.png",:alt => "facebook_login_icon",:class=>"facebook_login_icon"),'/auth/facebook/'  %>-->
+                  <!--</form>-->
                   <!--<li><%#= link_to 'Login with Facebook', '/auth/facebook/' %></li>-->
                   <!--<li><%#= link_to image_tag(asset_path = "icon_facebook_login.png",:alt => "facebook_login_icon",:class=>"facebook_login_icon"),'/auth/facebook/'  %></li>-->
                   <!--<li><%#= link_to "Facebook-Sign-in", FacebookSessions_path %></li>-->
-                </ul>
-              </div>
+                <!--</ul>-->
+                <% end %>
+                </div>
           <% end  %>
 
         </ul>
