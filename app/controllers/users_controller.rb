@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
+    @following_posts=@user.following.paginate(:page => params[:page])
     @comment=Comment.new
   end
 
@@ -51,6 +52,20 @@ class UsersController < ApplicationController
     @users = User.paginate(:page => params[:page], :per_page => 10)
     # @users=User.all
     # @users = User.paginate(:page => params[:page], :per_page => 10)
+  end
+
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
   end
 
   def exists?

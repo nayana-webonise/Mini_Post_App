@@ -6,6 +6,10 @@ MiniPostApp::Application.routes.draw do
  root :to => 'pages#home'
   resources :users do
     get :subscribe
+    member do
+      get :following, :followers
+    end
+
   end
  # resources :sessions
   resources :sessions
@@ -19,7 +23,9 @@ MiniPostApp::Application.routes.draw do
 
   resources :comments
  resources :authentication
-  # The priority is based upon order of creation:
+ resources :relationships, :only => [:create, :destroy]
+
+ # The priority is based upon order of creation:
   # first created -> highest priority.
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'

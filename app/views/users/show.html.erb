@@ -1,5 +1,7 @@
 <div class="well big-well span8">
-  <%= link_to "Subscribe",user_subscribe_path(@user.id) %>
+  <%= render 'follow_form' if signed_in? %>
+  <!--<%#= render 'shared/stats' %>-->
+
   <div class ="prof">
   <%= image_tag @user.image, :class=>"resize_image" %><br>
   <%#= gravatar_for @user %>
@@ -39,6 +41,8 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
   <% end %>
 
   <!--</div>-->
-</div>
+
+
+<!--</div>-->
 
 <%= will_paginate @posts %>

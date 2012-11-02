@@ -1,4 +1,6 @@
 <div class="well big-well span8">
+
+  <!--<%#= render 'shared/stats' %>-->
   <h3>Post Here</h3>
   <%= form_for @post, :html => { :method => :post, :class => 'form-horizontal' } do |f| %>
       <div class="control-group">
@@ -21,7 +23,6 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
 </span>
 
         <br>
-
         <!--<%= link_to "facebook",post_auth_path(post.id) %>-->
         <%= link_to image_tag(asset_path = "facebook-share-icon.gif",:alt => "facebook_share_icon",:class=>"facebook_share_icon"), url_for({:controller => 'posts', :action => 'auth', :post_id => post.id}) %>
         <br>
@@ -31,7 +32,20 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
       </div>
   <% end %>
 
-</div>
+  <% @followings_posts.each do |following| %>
 
+        <% @sub_posts = following.posts %>
+        <% @sub_posts.each do |sub|  %>
+          <div class="comments">
+            <%= link_to sub.content,post_path(sub) %><br>
+          <span class="timestamp">
+Posted <%= time_ago_in_words(sub.created_at) %> ago by <%= link_to following.name ,user_path(following.name) %>. <br><br>
+</span>
+          </div>
+        <% end %>
+        <br>
+
+  <% end %>
 </div>
-<%= will_paginate @posts %>
+</div>
+<%= will_paginate @posts && @followings_posts %>

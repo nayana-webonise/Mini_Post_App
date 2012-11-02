@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   def new
     #@user=User.find(params[:id])
     @post=Post.new
-    @posts = current_user.posts.paginate(:page => params[:page], :per_page => 10)
+    @posts = current_user.posts.paginate(:page => params[:page], :per_page => 5)
+    @followings_posts=current_user.following.paginate(:page => params[:page], :per_page => 5)
  #   @posts = User.where('users.id == authentications.user_id')
 
     #@posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
   def destroy
     @post=Post.find(params[:id]).destroy
     #@post.destroy
-    redirect_to_new_post_path
+    redirect_to new_post_path
     flash[:success] = "Post successfully deleted!"
 
   end

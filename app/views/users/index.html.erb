@@ -7,11 +7,17 @@
   </div>
   <% @users.each do |user| %>
       <div class="border">
-        <%= gravatar_for user, :size => 30 %>
+        <nobr>
+        <div class ="following">
+          <% if !user.image = nil %>
+          <%= image_tag user.image, :class=>"resize_image" %>
+          <% end %>
+          <%= link_to user.name, user %>
 
-        <%= link_to user.name, user %>
+          <%#= gravatar_for @user %>
+        </div>
 
-         <br>
+        </nobr>
       </div>
   <% end %>
 

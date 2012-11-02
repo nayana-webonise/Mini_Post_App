@@ -108,7 +108,7 @@ $(document).ready(function () {
             event.preventDefault();
 
         }
-        else if(comment.length > 10)
+        else if(comment.length > 140)
         {
             alert("Comment should not be more than 140 characters")
             event.preventDefault();
