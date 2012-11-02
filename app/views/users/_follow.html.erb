@@ -1,7 +1,13 @@
 
 
-<%= form_for current_user.relationships.build(:followed_id => @user.id),
+<%#= form_for current_user.relationships.build(:followed_id => @user.id),
              :remote => true do |f| %>
+    <div><%#= f.hidden_field :followed_id %></div>
+    <!--<div class="actions"><%#= f.submit "Subscribe",class: "btn btn-small btn-primary" %></div>-->
+<%# end %>
+
+<%= form_for current_user.relationships.build(:followed_id =>@user.id) do |f| %>
     <div><%= f.hidden_field :followed_id %></div>
-    <div class="actions"><%= f.submit "Subscribe",class: "btn btn-small btn-primary" %></div>
+    <div class="actions"><%= f.submit "Subscribe" ,class: "btn btn-small btn-primary"%></div>
 <% end %>
+

@@ -20,6 +20,18 @@
 
 $(document).ready(function () {
 
+
+        $('#comment-form').click(function(event){
+            event.preventDefault()
+            var comment = $('#comment_body').val();
+            alert(comment)
+            var post_id = $('#post_id').val();
+            alert(post_id)
+            $.post('/posts/'+post_id+'/comments',{post_id :"post_id", comment_body: comment});
+
+
+        });
+
     $("#submit").click(function(event)
         {
             var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);

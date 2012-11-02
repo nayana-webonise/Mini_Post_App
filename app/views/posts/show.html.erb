@@ -15,12 +15,13 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago.
       </td>
   <% end %>
 
+
   <h3>Add a Comment</h3>
   <%= form_for @comment, :url => post_comments_path(@post), :html => { :method => :post, :class => 'form-horizontal' } do |f1| %>
       <div class="control-group">
         <%#= f1.label :Comment %>
         <div class="controls">
-          <%= f1.text_area :body  %>
+          <%= f1.text_area :body , id: "comment_body"  %>
           <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
         </div>
       </div>
@@ -28,12 +29,15 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago.
       </div>
   <% end %>
 
-  <h3>Comments</h3>
-  <% @comments.each do |i| %>
-      <%=i.body %>  <br>
-  <%end%>
+  <%=hidden_field_tag( :post_id ,@post.id )%>
 
-
+  <div id="all_comments" class="">
+    <%= render :partial=>'comments/comment' %>
+  </div>
+  <!--<h3>Comments</h3>-->
+  <!--<%# @comments.each do |i| %>-->
+      <%#=i.body %>  <br>
+  <!--<#%end%>-->
   </span>
   </td>
   </td>

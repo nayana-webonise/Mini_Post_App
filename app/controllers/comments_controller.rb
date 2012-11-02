@@ -1,10 +1,15 @@
 class CommentsController < ApplicationController
   def create
     @post=Post.find(params[:post_id])
-    @comment =@post.comments.new(params[:comment])
+    @comment =@post.comments.new(:body => params[:comment_body])
     if @comment.save
-      redirect_to post_path @post
-      flash[:success] = "Successfully commented on post"
+      @comments=@post.comments
+      flash[:success] = "comment created!"
+      respond_to do |format|
+        format.js
+      #redirect_to post_path @post
+      #flash[:success] = "Successfully commented on post"
+    end
     else
       redirect_to new_post_path
       flash[:error] = "Error "

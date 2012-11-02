@@ -1,44 +1,17 @@
 
-<h5>Sign in</h5>
-<%= form_for(:session, url: sessions_path,:html => { :method => :post },:class => "form-inline" ) do |f| %>
-
-    <%= f.text_field :email, :class=> "input-small" %>
-
-    <%= f.password_field :password, :class=> "input-small" %>
-
-    <%= f.submit "Sign in", id: "sign-in", class: "btn btn-small btn-primary" %>
-
+<h3>Add a Comment</h3>
+<%= form_for @comment, :url => post_comments_path(@post), :html => { :method => :post, :class => 'form-horizontal' } do |f1| %>
+    <div class="control-group">
+      <%#= f1.label :Comment %>
+      <div class="controls">
+        <%= f1.text_area :body  %>
+        <%= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>
+      </div>
+    </div>
+    <div class="form-actions">
+    </div>
 <% end %>
 
-<p>New User?? <%= link_to "Sign up now!", new_user_path %></p>
-<!--<h4>Add a comment:</h4>-->
-<!--<%#= form_for @comment, :html => { :method => :post, :class => 'form-horizontal' } do |f1| %>-->
-<!--<div class="field" >-->
-<%#= f1.label :comment %><br />
-<!--<%#= f1.text_field :body %>-->
-<!--</div>-->
-<!--<div class="actions">-->
-<!--<%#= f1.submit "Submit"%>-->
-<!--</div>-->
-
-<!--<#% end %>-->
-
-
-<!--<h3>Add a Comment</h3>-->
-<!--<%#= form_for @comment, :url => post_comments_path(@post1), :html => { :method => :post, :class => 'form-inline' } do |f1| %>-->
-<!--<div class="control-group">-->
-<!--<%#= f1.label :Comment %>-->
-<!--<div class="controls">-->
-<!--<%#= f1.text_area :body  %>-->
-<!--<%#= f1.submit "Submit", class: "btn btn-small btn-primary", id: "comment-form" %>-->
-<!--<%#= f1.text_field :body %>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="form-actions">-->
-
-<!--</div>-->
-
-<!--<#% end %>-->
 
 
 
