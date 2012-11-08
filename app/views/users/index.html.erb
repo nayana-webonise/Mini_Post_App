@@ -8,14 +8,14 @@
   <% @users.each do |user| %>
       <div class="border">
         <nobr>
-        <div class ="following">
-          <% if !user.image = nil %>
-          <%= image_tag user.image, :class=>"resize_image" %>
-          <% end %>
-          <%= link_to user.name, user %>
+          <div class ="following">
+            <% if !user.image = nil %>
+                <%= image_tag user.image, :class=>"resize_image" %>
+            <% end %>
+            <%= link_to user.name, user %>
 
-          <%#= gravatar_for @user %>
-        </div>
+            <%#= gravatar_for @user %>
+          </div>
 
         </nobr>
       </div>

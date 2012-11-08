@@ -7,9 +7,7 @@ class CommentsController < ApplicationController
       flash[:success] = "comment created!"
       respond_to do |format|
         format.js
-      #redirect_to post_path @post
-      #flash[:success] = "Successfully commented on post"
-    end
+      end
     else
       redirect_to new_post_path
       flash[:error] = "Error "

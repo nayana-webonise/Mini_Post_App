@@ -41,7 +41,6 @@ class AuthenticationController < ApplicationController
   #end
 
 
-
   before_filter :authenticate_user!, :only => :destroy
 
   def create
@@ -57,33 +56,26 @@ class AuthenticationController < ApplicationController
       redirect_to root_path
     else # user logged out
       if authentication # sign in user
-       # sign_in_and_redirect :user, authentication.user
+                        # sign_in_and_redirect :user, authentication.user
         sign_in(authentication.user)
         redirect_to new_post_path
       else # create new user
 
         user = User.new
-           user.apply_omniauth(omniauth)
-           if user.save(:validate => false)
-           flash[:notice] = "Account created and signed in successfully."
+        user.apply_omniauth(omniauth)
+        if user.save(:validate => false)
+          flash[:notice] = "Account created and signed in successfully."
           # redirect_to users_path
-           sign_in(user)
-           redirect_to new_post_path
-           flash[:notice] = "Account created and signed in successfully."
+          sign_in(user)
+          redirect_to new_post_path
+          flash[:notice] = "Account created and signed in successfully."
           # sign_in_and_redirect(:user, user)
-           else
+        else
 
-             redirect_to root_url
-             flash[:error] = "Error while creating a user account. Please try again."
-           end
-        #user = User.new.tap {|user| user.apply_omniauth(omniauth) }
-        #if user.save
-        #  sign_in(authentication.user)
-        #  redirect_to new_post_path
-        #else
-        #  session["omniauth"] = omniauth
-        # redirect_to new_post_path
-        #end
+          redirect_to root_url
+          flash[:error] = "Error while creating a user account. Please try again."
+        end
+
       end
     end
   end

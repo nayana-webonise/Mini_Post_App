@@ -34,16 +34,16 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
 
   <% @followings_posts.each do |following| %>
 
-        <% @sub_posts = following.posts %>
-        <% @sub_posts.each do |sub|  %>
+      <% @sub_posts = following.posts %>
+      <% @sub_posts.each do |sub|  %>
           <div class="comments">
             <%= link_to sub.content,post_path(sub) %><br>
           <span class="timestamp">
 Posted <%= time_ago_in_words(sub.created_at) %> ago by <%= link_to following.name ,user_path(following.name) %>. <br><br>
 </span>
           </div>
-        <% end %>
-        <br>
+      <% end %>
+      <br>
 
   <% end %>
 </div>

@@ -1,7 +1,6 @@
 
 class UsersController < ApplicationController
 
-
   before_filter :exists?, only: [:show,:index]
 
   def new
@@ -50,8 +49,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(:page => params[:page], :per_page => 10)
-    # @users=User.all
-    # @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
 

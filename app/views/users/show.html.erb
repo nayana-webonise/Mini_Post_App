@@ -3,8 +3,8 @@
   <!--<%#= render 'shared/stats' %>-->
 
   <div class ="prof">
-  <%= image_tag @user.image, :class=>"resize_image" %><br>
-  <%#= gravatar_for @user %>
+    <%= image_tag @user.image, :class=>"resize_image" %><br>
+    <%#= gravatar_for @user %>
   </div>
   <h3>Name : <%= @user.name %></h3>
 
@@ -43,6 +43,6 @@ Posted <%= time_ago_in_words(post.created_at) %> ago. <br>
   <!--</div>-->
 
 
-<!--</div>-->
+  <!--</div>-->
 
 <%= will_paginate @posts %>

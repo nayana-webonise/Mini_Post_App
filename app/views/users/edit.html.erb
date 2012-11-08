@@ -1,29 +1,29 @@
 <div class="well big-well span8">
-<center><h2>Update Profile</h2></center>
-<hr>
-<%= form_for @user, :html => {  :class => 'form-horizontal',:style => "padding-left: 200px" } do |f| %>
-    <div class="control-group">
-      <%= f.label :name, "Name", :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name %>
+  <center><h2>Update Profile</h2></center>
+  <hr>
+  <%= form_for @user, :html => {  :class => 'form-horizontal',:style => "padding-left: 200px" } do |f| %>
+      <div class="control-group">
+        <%= f.label :name, "Name", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name %>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :Email, "Email", :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :email %>
+      <div class="control-group">
+        <%= f.label :Email, "Email", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :email %>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :image,:class => "control-label"%><br />
-      <div class="avatar_uploader">
-        <%= f.file_field :image %>
+      <div class="control-group">
+        <%= f.label :image,:class => "control-label"%><br />
+        <div class="avatar_uploader">
+          <%= f.file_field :image %>
+        </div>
       </div>
-    </div>
-    <div class="form-actions">
+      <div class="form-actions">
 
-      <%= f.submit "Update Profile", class: "btn btn-small btn-primary", id: "submit" %>
-    </div>
+        <%= f.submit "Update Profile", class: "btn btn-small btn-primary", id: "submit" %>
+      </div>
 
-<% end %>
+  <% end %>
 </div>

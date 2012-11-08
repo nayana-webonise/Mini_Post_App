@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-  Post.from_users_followed_by(self)
+    Post.from_users_followed_by(self)
   end
 
 
